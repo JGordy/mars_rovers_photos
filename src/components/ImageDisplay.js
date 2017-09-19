@@ -7,12 +7,12 @@ export default class ImageDisplay extends Component {
   render() {
     console.log(this.props.images);
     let roverImage = this.props.images.map((image) => {
-      return <div key={image.id} className="singleImage">
-              <img src={image.img_src}/>
+      return <div key={image.id} className="singleImage" style={{margin: "0px auto"}}>
+              <img src={image.img_src} style={{width: "450px", margin: "10px"}}/>
             </div>
     })
     return (
-      <div className="imageContainer">
+      <div className="imageContainer d-flex flex-wrap" >
         {roverImage}
       </div>
     )

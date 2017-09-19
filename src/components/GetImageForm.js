@@ -50,26 +50,36 @@ export default class GetImageForm extends Component {
   }
 
   render() {
+    let labelStyle = {
+      marginRight: "10px",
+      fontSize: "24px"
+    }
     return (
-      <div className="">
-        <form onSubmit={this.fetchRoverImage}>
-          <label htmlFor="rover">Rover</label>
-          <select onChange={this.handleRover} id="rover" value={this.state.value}>
-            <option value="Curiosity">Curiosity</option>
-            <option value="Opportunity">Opportunity</option>
-            <option value="Spirit">Spirt</option>
-          </select>
-          <label htmlFor="camera">Camera Type</label>
-          <select onChange={this.handleCamera} id="rover" value={this.state.value}>
-            <option value="fhaz">FHAZ (Front Hazard)</option>
-            <option value="rhaz">RHAZ (Rear Hazard)</option>
-            <option value="navcam">NAVCAM (Navigation Cam)</option>
-          </select>
-          <label htmlFor="sol">Martian Sol: 1000-2000</label>
-          <input type="number" onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
-          </form>
-          <GetImageButton fetchRoverImage={this.fetchRoverImage} />
-          <ImageDisplay images={this.state.images}/>
+      <div className="imageForm">
+        <form onSubmit={this.fetchRoverImage} style={{width: "100%", color: "white", height: "75px", paddingTop: "10px", display: "flex", justifyContent: "space-around", alignItems: "center"}}>
+          <div className="selectRover">
+            <label style={labelStyle} htmlFor="rover">Rover</label>
+            <select onChange={this.handleRover} id="rover" value={this.state.value}>
+              <option value="Curiosity">Curiosity</option>
+              <option value="Opportunity">Opportunity</option>
+              <option value="Spirit">Spirt</option>
+            </select>
+          </div>
+          <div className="selectCamera">
+            <label style={labelStyle} htmlFor="camera">Camera Type</label>
+            <select onChange={this.handleCamera} id="rover" value={this.state.value}>
+              <option value="fhaz">FHAZ (Front Hazard)</option>
+              <option value="rhaz">RHAZ (Rear Hazard)</option>
+              <option value="navcam">NAVCAM (Navigation Cam)</option>
+            </select>
+          </div>
+          <div className="selectSol">
+            <label style={labelStyle} htmlFor="sol">Martian Sol: 1000-2000</label>
+            <input type="number" style={{borderRadius: "5px", backgroundColor: "#fff"}} onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
+          </div>
+        </form>
+        <GetImageButton fetchRoverImage={this.fetchRoverImage} />
+        <ImageDisplay images={this.state.images}/>
       </div>
     )
   }

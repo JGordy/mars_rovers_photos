@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+body {
+  background-image: url(../images/strange_bullseyes.png);
+  height: 500px;
+}
+
+.imageForm {
+  background-image: url(../images/dark_mosaic.png);
+}
+
+.imageContainer {
+  background-image: url(../images/strange_bullseyes.png);
+}
