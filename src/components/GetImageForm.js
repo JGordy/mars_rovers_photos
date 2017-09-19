@@ -56,7 +56,7 @@ export default class GetImageForm extends Component {
     }
     return (
       <div className="imageForm">
-        <form onSubmit={this.fetchRoverImage} style={{width: "100%", color: "white", height: "75px", paddingTop: "10px", display: "flex", justifyContent: "space-around", alignItems: "center"}}>
+        <form onSubmit={this.fetchRoverImage} style={{width: "100%", color: "white", height: "85px", paddingTop: "20px", display: "flex", justifyContent: "space-around", alignItems: "baseline", position: "fixed"}}>
           <div className="selectRover">
             <label style={labelStyle} htmlFor="rover">Rover</label>
             <select onChange={this.handleRover} id="rover" value={this.state.value}>
@@ -77,8 +77,8 @@ export default class GetImageForm extends Component {
             <label style={labelStyle} htmlFor="sol">Martian Sol: 1000-2000</label>
             <input type="number" style={{borderRadius: "5px", backgroundColor: "#fff"}} onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
           </div>
+          <GetImageButton fetchRoverImage={this.fetchRoverImage} />
         </form>
-        <GetImageButton fetchRoverImage={this.fetchRoverImage} />
         <ImageDisplay images={this.state.images}/>
       </div>
     )

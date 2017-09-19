@@ -5,9 +5,12 @@
 body {
   background-image: url(../images/strange_bullseyes.png);
   height: 500px;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
 }
 
-.imageForm {
+.imageForm form {
   background-image: url(../images/dark_mosaic.png);
 }
 
