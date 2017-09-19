@@ -38,14 +38,14 @@ export default class GetImageForm extends Component {
     let cam = this.state.camera;
     let rove = this.state.rover;
     let num = this.state.sol;
-    console.log(this.state);
+
     let imageUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rove}/photos?sol=${num}&camera=${cam}&api_key=${API_KEY}`;
 
     fetch(imageUrl).then(results => {
       return results.json();
     }).then(data => {
       console.log(data);
-      this.setState({images: data});
+      this.setState({images: data.photos});
     })
   }
 
