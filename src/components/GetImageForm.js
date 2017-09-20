@@ -13,6 +13,7 @@ export default class GetImageForm extends Component {
       camera: "FHAZ",
       images: [],
       sol: "",
+      message: "Search for some awesome Mars rover pics above"
     }
     this.fetchRoverImage = this.fetchRoverImage.bind(this);
     this.handleRover = this.handleRover.bind(this);
@@ -41,11 +42,18 @@ export default class GetImageForm extends Component {
 
     let imageUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rove}/photos?sol=${num}&camera=${cam}&api_key=${API_KEY}`;
 
-    fetch(imageUrl).then(results => {
+    fetch(imageUrl)
+    .then(results => {
       return results.json();
     }).then(data => {
-      console.log(data);
-      this.setState({images: data.photos});
+      console.log(data.photos);
+      this.setState({images: data.photos, message: rove});
+      if(this.state.images.length === 0) {
+        this.setState({message: "There are no martian photos for this date. Try searching again"})
+      }
+    }).catch(error => {
+      console.log(error);
+      this.setState({message: "Whoops! Error fetching images."})
     })
   }
 
@@ -79,6 +87,7 @@ export default class GetImageForm extends Component {
           </div>
           <GetImageButton fetchRoverImage={this.fetchRoverImage} />
         </form>
+        <h1 style={{paddingTop: "100px"}}>{this.state.message}</h1>
         <ImageDisplay images={this.state.images}/>
       </div>
     )

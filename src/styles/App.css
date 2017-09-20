@@ -14,6 +14,10 @@ body {
   background-image: url(../images/dark_mosaic.png);
 }
 
-/*.imageContainer {
-  background-image: url(../images/strange_bullseyes.png);
-}*/
+.singleImage {
+  box-shadow: 2px 2px 2px gray;
+}
+
+.singleImage:hover {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
