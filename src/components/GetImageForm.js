@@ -56,7 +56,7 @@ export default class GetImageForm extends Component {
     }
     return (
       <div className="imageForm">
-        <form onSubmit={this.fetchRoverImage} style={{width: "100%", color: "white", height: "85px", paddingTop: "20px", display: "flex", justifyContent: "space-around", alignItems: "baseline", position: "fixed"}}>
+        <form onSubmit={this.fetchRoverImage} style={{width: "100%", color: "white", height: "85px", paddingTop: "20px", display: "flex", justifyContent: "space-around", alignItems: "baseline", position: "fixed", boxShadow: "0px 4px 4px maroon"}}>
           <div className="selectRover">
             <label style={labelStyle} htmlFor="rover">Rover</label>
             <select onChange={this.handleRover} id="rover" value={this.state.value}>
